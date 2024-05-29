@@ -848,7 +848,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <!-- Dipindahkan ke dashboard.blade.php -->
+  <!-- Dipindahkan ke blade.php yg lain -->
   @yield('content')
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -901,5 +901,6 @@
 <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('adminlte/dist/js/pages/dashboard.js') }}"></script>
+@include('sweetalert::alert')
 </body>
 </html>

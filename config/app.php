@@ -142,6 +142,7 @@ return [
         'driver' => 'file',
         // 'store'  => 'redis',
     ],
+    'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -185,7 +186,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         /*
          * Application Service Providers...
          */

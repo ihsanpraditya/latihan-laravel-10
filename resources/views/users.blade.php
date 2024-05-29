@@ -24,7 +24,7 @@
       <div class="container-fluid">
       <div class="row">
           <div class="col-12">
-            <a href="{{ route('create.user') }}" class="btn btn-primary mb-3">Create User</a>
+            <a href="{{ route('user.create') }}" class="btn btn-primary mb-3">Create User</a>
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">Daftar Users</h3>
@@ -59,8 +59,15 @@
                       <td>{{ $d->name }}</td>
                       <td>{{ $d->email }}</td>
                       <td>
-                        <a href="" class="btn btn-primary"><i class="fas fa-pen"> Edit</i></a>
-                        <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"> Delete</i></a>
+                        <a href="{{ route('user.edit', $d->id) }}" class="btn btn-primary"><i class="fas fa-pen"> Edit</i></a>
+                        <form action="{{ route('user.delete', $d->id) }}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button class="btn btn-danger"><i class="fas fa-trash-alt"> Delete</i></button>
+                        </form>
+                        {{-- <a href="{{ route('user.delete', $d->id) }}" method="POST" class="btn btn-danger"><i class="fas fa-trash-alt"> Delete</i></a>
+                        @csrf
+                        @method('DELETE') --}}
                       </td>
                     </tr>
                     @endforeach

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,14 @@ use App\Http\Controllers\HomeController;
 //     echo "Cat";
 // });
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/users', [HomeController::class, 'users'])->name('users');
-Route::get('/create',[HomeController::class, 'createUser'])->name('create.user');
-Route::post('/store',[HomeController::class, 'storeUser'])->name('store.user');
+Route::get('/create', [HomeController::class, 'userCreate'])->name('user.create');
+Route::post('/store', [HomeController::class, 'userStore'])->name('user.store');
+Route::get('/edit/{id}', [HomeController::class, 'userEdit'])->name('user.edit');
+Route::put('/update/{id}', [HomeController::class, 'userUpdate'])->name('user.update');
+Route::delete('/delete/{id}', [HomeController::class, 'userDelete'])->name('user.delete');
+
+Route::get('/login', [LoginController::class, 'userLogin'])->name('user.login');
+Route::post('/login/process', [LoginController::class, 'userLoginProcess'])->name('user.login.process');
+// Route::get('/login', [LoginController::class, 'userLogout'])->name('user.login.logout');

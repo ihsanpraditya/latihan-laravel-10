@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Update Data User</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -33,26 +33,27 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{ route('user.store') }}" method="POST">
+              <form action="{{ route('user.update', $userEdit->id) }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ old('email') }}">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value="{{ $userEdit->email }}">
                     @error('email')
                     <small>{{ $message }}</small>
                     @enderror
                   </div>
                   <div class="form-group">
                     <label for="name">Fullname</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value="{{ old('name') }}">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value="{{ $userEdit->name }}">
                     @error('name')
                     <small>{{ $message }}</small>
                     @enderror
                   </div>
                   <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{ old('password') }}">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     @error('password')
                     <small>{{ $message }}</small>
                     @enderror
