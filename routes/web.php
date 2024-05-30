@@ -34,3 +34,6 @@ Route::delete('/delete/{id}', [HomeController::class, 'userDelete'])->name('user
 Route::get('/login', [LoginController::class, 'userLogin'])->name('user.login');
 Route::post('/login/process', [LoginController::class, 'userLoginProcess'])->name('user.login.process');
 // Route::get('/login', [LoginController::class, 'userLogout'])->name('user.login.logout');
+// https://www.youtube.com/playlist?list=PLRx0OlyTshRaeJxdgrbHDxQOe8z_Sixhd
+// https://shouts.dev/articles/laravel-10-how-to-implement-sweet-alert
+// https://shouts.dev/articles/laravel-create-dummy-data-using-factory-tinker

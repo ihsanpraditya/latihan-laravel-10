@@ -21,6 +21,7 @@ class HomeController extends Controller
     }
     public function users(){
 	    $data = User::get();
+        confirmDelete('Menghapus user', 'Yakin mau hapus?');
         return view('users', compact('data'));
     }
     public function userCreate(){
@@ -42,6 +43,8 @@ class HomeController extends Controller
         ]);
         
         return redirect()->route('users')->with('success', 'User created successfully!');
+        alert()->success('User added successfully.');
+
     }
     public function userEdit($id){
         $userEdit = User::find($id);
@@ -66,6 +69,7 @@ class HomeController extends Controller
     }
     public function userDelete($id){
         User::find($id)->delete();
-        return redirect()->route('users')->with('success', 'User deleted successfully!');
+        return redirect()->route('users');
+        alert()->success('User deleted successfully.');
     }
 }
